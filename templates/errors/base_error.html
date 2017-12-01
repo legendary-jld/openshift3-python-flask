@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{error.title}}</title>
+  <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC|Amiri' rel='stylesheet'>
+  <style>
+  body{
+    min-height:100vh;
+    margin:0;padding:0;
+    background-color:#3CB371;
+    background: linear-gradient(to bottom right, #3CB371, #87CEFA);
+    font-family:Amiri, sans-serif;
+  }
+  a{color:#4169E1;text-decoration: none;}
+  a:hover{color:#4B0082;text-decoration: underline;}
+  h1{font-family:'Alegreya Sans SC', Arial, sans-serif;}
+  header{
+    text-align:center;
+    background-color:rgba(255,255,255,0.5);
+    padding:0.5rem 0;
+  }
+  section{
+    padding:30vh 5vw;
+    text-align:center;
+    color:white;
+    font-size:2.0rem;
+  }
+  footer{
+    position: fixed;
+    bottom:0px;
+    left:0px;
+    width:100%;
+    padding:0.5rem 0;
+    background-color:rgba(255,255,255,0.5);
+    text-align:center;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/">Home</a>
+  </header>
+  <section>
+    <h1>{{error.title}}</h1>
+    <p>{{error.message}}</p>
+  </section>
+  <footer>
+    {{error.code}} | {{error.title}} - If you believe you've received this in error, please contact a website administrator.
+  </footer>
+</body>
+</html>

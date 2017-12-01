@@ -8,11 +8,15 @@ from flask_sqlalchemy import SQLAlchemy
 # from sendgrid.helpers.mail import *
 # from passlib.hash import sha256_crypt
 
-## Internally developed modules
+# Local Libraries
 import models
+from blueprint_errors import errorhandling # Blueprint for Error Handling
+from blueprint_templatefilters import templatefilters # Blueprint for Jinja Template Filters
 
 app = Flask(__name__)
 app.config.from_pyfile('wsgi.cfg')
+app.register_blueprint(errorhandling)
+app.register_blueprint(templatefilters)
 # models.db.init_app(app)
 
 
