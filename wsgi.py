@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-
 import os, string
 import datetime
 from flask_sqlalchemy import SQLAlchemy
@@ -14,11 +13,14 @@ import models
 
 app = Flask(__name__)
 app.config.from_pyfile('wsgi.cfg')
-models.db.init_app(app)
+# models.db.init_app(app)
 
 
 @app.before_request
 def before_request():
+    g.settings = {
+        "cdn_path": "https://d3skzu0rvh4kr6.cloudfront.net"
+    }
     g.branding = {
         "root_url": "www.brand.com",
         "brand_name": "Brand, Inc.",
@@ -26,7 +28,8 @@ def before_request():
     }
     g.client = {
         "browser": request.user_agent.browser,
-        "ip_address": request.headers.get("x-forwarded-for")
+        "ip_address": request.headers.get("x-forwarded-for"),
+        "route": request.access_route
     }
 
 
